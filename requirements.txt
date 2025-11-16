@@ -1,0 +1,8 @@
+google-genai
+chromadb
+fastapi
+uvicorn
+markdown
+beautifulsoup4
+sentence-transformers
+torch
