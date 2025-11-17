@@ -49,7 +49,7 @@ Leadership materials: candidate guidance, leadership selection
 
 Working with partners: consulting engineering, leading projects, project team guidance, distressed project handling
 
-/about-us/
+**about-us**
 
 Organizational information and foundational resources:
 
@@ -63,7 +63,7 @@ Internal communication guidance
 
 Training and onboarding materials
 
-/general-information-and-resources/
+**general-information-and-resources**
 
 Core policies and essential employee resources:
 
@@ -77,7 +77,7 @@ Tech policies: passwords, bug bounty, open source, records, security incidents
 
 Tools overview: approved software, purchase processes, general contacts
 
-/getting-started/
+**getting-started**
 
 Primary onboarding materials:
 
@@ -91,7 +91,7 @@ Welcome package
 
 Initial classes and training
 
-/hiring-staying-or-changing-jobs/
+**hiring-staying-or-changing-jobs**
 
 Complete HR lifecycle:
 
@@ -107,7 +107,7 @@ Offboarding
 
 Term extensions
 
-/launching-software/
+**launching-software**
 
 Technical and compliance documentation:
 
@@ -121,11 +121,11 @@ Privacy
 
 Product lifecycle processes
 
-/office-of-acquisition/
+**office-of-acquisition**
 
 Procurement and acquisition workflows.
 
-/office-of-operations/
+**office-of-operations**
 
 Operations-related resources:
 
@@ -139,7 +139,7 @@ Social media
 
 Talent processes
 
-/office-of-solutions/
+**office-of-solutions**
 
 Materials on:
 
@@ -151,7 +151,7 @@ Technology operations
 
 Innovation portfolio
 
-/performance-management/
+**performance-management**
 
 Employee performance evaluation materials:
 
@@ -161,11 +161,11 @@ Supervisor resources
 
 Annual review cycle timelines
 
-/supervisor-resources/
+**supervisor-resources**
 
 A comprehensive supervisor playbook (12 plays), covering management responsibilities and best practices.
 
-/tools/
+**tools**
 
 Extensive tool documentation — the most valuable section for IT-support chatbots:
 
@@ -217,7 +217,7 @@ User management
 
 Records
 
-/training-and-development/
+**training-and-development**
 
 Materials for professional growth:
 
@@ -231,7 +231,7 @@ Working groups
 
 PRA for user research
 
-/travel-and-leave/
+**travel-and-leave**
 
 HR-level travel and leave documentation:
 
