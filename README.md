@@ -37,7 +37,7 @@ https://github.com/GSA-TTS/handbook/tree/main/pages
 
 The TTS Handbook dataset is organized into clear directories, each representing a specific domain of organizational knowledge. Below is a concise breakdown of the major folders and their contents.
 
-/18f/
+**18f**
 
 Documentation for the 18F team, including:
 
