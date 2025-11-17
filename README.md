@@ -6,29 +6,29 @@ The entire dataset is fully open-source, publicly accessible, and contains no se
 
 Structured into 38 directories and 250+ Markdown files, the collection captures a wide range of organizational knowledge typically found inside a large government-level institution, including:
 
-Team operations
+**- Team operations**
 
-HR policies
++ HR policies
 
-Hiring and onboarding processes
++ Hiring and onboarding processes
 
-Project management guidelines
++ Project management guidelines
 
-Supervisor and leadership guidance
++ Supervisor and leadership guidance
 
-Technical tools and IT procedures
++ Technical tools and IT procedures
 
-Partner and vendor collaboration practices
++ Partner and vendor collaboration practices
 
-Travel and leave policies
++ Travel and leave policies
 
-Training and professional development
++ Training and professional development
 
-Conflict resolution and feedback practices
++ Conflict resolution and feedback practices
 
-Security policies and technology standards
++ Security policies and technology standards
 
-Leadership and management principles
++ Leadership and management principles
 
 You can browse the original repository here:
 https://github.com/GSA-TTS/handbook/tree/main/pages
@@ -37,219 +37,219 @@ https://github.com/GSA-TTS/handbook/tree/main/pages
 
 The TTS Handbook dataset is organized into clear directories, each representing a specific domain of organizational knowledge. Below is a concise breakdown of the major folders and their contents.
 
-**18f**
+**- 18f**
 
-Documentation for the 18F team, including:
++ Documentation for the 18F team, including:
 
-Roles & disciplines: account manager, engineering, design, product, acquisition
++ Roles & disciplines: account manager, engineering, design, product, acquisition
 
-Internal operations: business development, contractors, project lifecycle, research guidelines, staffing, agreements
++ Internal operations: business development, contractors, project lifecycle, research guidelines, staffing, agreements
 
-Leadership materials: candidate guidance, leadership selection
++ Leadership materials: candidate guidance, leadership selection
 
-Working with partners: consulting engineering, leading projects, project team guidance, distressed project handling
++ Working with partners: consulting engineering, leading projects, project team guidance, distressed project handling
 
-**about-us**
+**- about-us**
 
-Organizational information and foundational resources:
++ Organizational information and foundational resources:
 
-Code of conduct
+1. Code of conduct
 
-Org charts
+2. Org charts
 
-TTS consulting (mission, operations)
+3. TTS consulting (mission, operations)
 
-Internal communication guidance
+4. Internal communication guidance
 
-Training and onboarding materials
+5. Training and onboarding materials
 
-**general-information-and-resources**
+**- general-information-and-resources**
 
-Core policies and essential employee resources:
++ Core policies and essential employee resources:
 
-Business & operations: billing, IG CAP, classified-policy references
++ Business & operations: billing, IG CAP, classified-policy references
 
-Employee resources: benefits, check-ins, transit, support programs, work schedules
++ Employee resources: benefits, check-ins, transit, support programs, work schedules
 
-Conflict feedback: frameworks and conflict-resolution guidance
++ Conflict feedback: frameworks and conflict-resolution guidance
 
-Tech policies: passwords, bug bounty, open source, records, security incidents
++ Tech policies: passwords, bug bounty, open source, records, security incidents
 
-Tools overview: approved software, purchase processes, general contacts
++ Tools overview: approved software, purchase processes, general contacts
 
-**getting-started**
+**- getting-started**
 
-Primary onboarding materials:
++ Primary onboarding materials:
 
-Equipment setup
+1. Equipment setup
 
-Login instructions
+2. Login instructions
 
-PIV
+3. PIV
 
-Welcome package
+4. Welcome package
 
-Initial classes and training
+5. Initial classes and training
 
-**hiring-staying-or-changing-jobs**
+**- hiring-staying-or-changing-jobs**
 
-Complete HR lifecycle:
++ Complete HR lifecycle:
 
-Hiring processes
+1. Hiring processes
 
-Hiring authorities
+2. Hiring authorities
 
-Promotions
+3. Promotions
 
-Résumé guidance
+4. Resume guidance
 
-Offboarding
+5. Offboarding
 
-Term extensions
+6. Term extensions
 
-**launching-software**
+**- launching-software**
 
-Technical and compliance documentation:
++ Technical and compliance documentation:
 
-Security
+1. Security
 
-Infrastructure
+2. Infrastructure
 
-Legal requirements
+3. Legal requirements
 
-Privacy
+4. Privacy
 
-Product lifecycle processes
+5. Product lifecycle processes
 
-**office-of-acquisition**
+**- office-of-acquisition**
 
-Procurement and acquisition workflows.
++ Procurement and acquisition workflows.
 
-**office-of-operations**
+**- office-of-operations**
 
-Operations-related resources:
++ Operations-related resources:
 
-BizOps
+1. BizOps
 
-Blogging
+2. Blogging
 
-Outreach & market development
+3. Outreach & market development
 
-Social media
+4. Social media
 
-Talent processes
+5. Talent processes
 
-**office-of-solutions**
+**- office-of-solutions**
 
-Materials on:
++ Materials on:
 
-Organizational history
+1. Organizational history
 
-Org charts
+2. Org charts
 
-Technology operations
+3. Technology operations
 
-Innovation portfolio
+4. Innovation portfolio
 
-**performance-management**
+**- performance-management**
 
 Employee performance evaluation materials:
 
-Mid-year & end-of-year reviews
+1. Mid-year & end-of-year reviews
 
-Supervisor resources
+2. Supervisor resources
 
-Annual review cycle timelines
+3. Annual review cycle timelines
 
-**supervisor-resources**
+**- supervisor-resources**
 
-A comprehensive supervisor playbook (12 plays), covering management responsibilities and best practices.
++ A comprehensive supervisor playbook (12 plays), covering management responsibilities and best practices.
 
-**tools**
+**- tools**
 
-Extensive tool documentation — the most valuable section for IT-support chatbots:
++ Extensive tool documentation — the most valuable section for IT-support chatbots:
 
-Adobe, Airtable
+1. Adobe, Airtable
 
-Analytics tools
+2. Analytics tools
 
-Docker Hub
+3. Docker Hub
 
-GitHub
+4. GitHub
 
-Google Workspace (Docs, Calendar, Meet, Groups)
+5. Google Workspace (Docs, Calendar, Meet, Groups)
 
-Gmail
+6. Gmail
 
-Mural
+7. Mural
 
-New Relic
+8. New Relic
 
-Microsoft Office
+9. Microsoft Office
 
-Slack
+10. Slack
 
-Smartsheet
+11. Smartsheet
 
-Teams
+12. Teams
 
-Trello
+13. Trello
 
-VMware
+14. VMware
 
-Zoom
+15. Zoom
 
-Shared calendars
+16. Shared calendars
 
-Text editors
+17. Text editors
 
-Includes a specialized Slack subdirectory:
+18. Includes a specialized Slack subdirectory:
 
-Getting started
+19. Getting started
 
-Guidelines
+20. Guidelines
 
-Integrations
+21. Integrations
 
-Notifications
+22. Notifications
 
-User management
+23. User management
 
-Records
+24. Records
 
-**training-and-development**
+**- training-and-development**
 
-Materials for professional growth:
++ Materials for professional growth:
 
-Conferences
+1. Conferences
 
-Development programs
+2. Development programs
 
-GitHub introduction
+3. GitHub introduction
 
-Working groups
+4. Working groups
 
-PRA for user research
+5. PRA for user research
 
-**travel-and-leave**
+**- travel-and-leave**
 
-HR-level travel and leave documentation:
++ HR-level travel and leave documentation:
 
-FMLA
+1. FMLA
 
-Leave policies
+2. Leave policies
 
-Overtime
+3. Overtime
 
-Paid parental leave
+4. Paid parental leave
 
-Travel guides
+5. Travel guides
 
-Out-of-office procedures
+6. Out-of-office procedures
 
-Emergency travel
+7. Emergency travel
 
-Reimbursements
+8. Reimbursements
 
 ## File Organization
 ```text
