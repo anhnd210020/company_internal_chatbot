@@ -253,24 +253,36 @@ Reimbursements
 
 ## File Organization
 ```text
-company-internal-chatbot/
-├── pages/                          # Bộ tài liệu nội bộ (markdown) để ingest
-│   ├── onboarding/
-│   ├── it/
-│   ├── hr/
-│   └── ...                         # (Toàn bộ .md lấy từ handbook)
+.
+├── api.py                      # FastAPI: /chatbot_query endpoint
+├── config.py                   # Gemini, embeddings, and Chroma configuration
+├── rag_core.py                 # RAG logic: retrieval + generation
+├── ingest_handbook.py          # Ingest TTS Handbook into ChromaDB
 │
-├── chroma_db/                      # Vector database (auto-generated sau ingestion)
-│   └── ...                         
+├── pages/                      # TTS Handbook dataset (Markdown files)
+│   ├── 18f/                    # 18F team: history, projects, leadership
+│   ├── about-us/               # Organization info, code of conduct, org chart
+│   ├── general-information-and-resources/  # Policies, employee resources, tech policies
+│   ├── getting-started/        # Onboarding, equipment, login guides
+│   ├── hiring-staying-or-changing-jobs/    # Hiring, promotions, role changes
+│   ├── launching-software/     # Software lifecycle, security, privacy
+│   ├── office-of-acquisition/  # Procurement processes, roles & responsibilities
+│   ├── office-of-operations/   # BizOps, outreach, internal communications
+│   ├── office-of-solutions/    # Tech operations, innovation portfolio
+│   ├── performance-management/ # Performance reviews: mid-year, end-year
+│   ├── supervisor-resources/   # Supervisor playbook and management guides
+│   ├── tools/                  # Guides for Slack, GitHub, Google, Zoom, etc.
+│   ├── training-and-development/ # Training, conferences, working groups
+│   ├── travel-and-leave/       # Leave policies, overtime, travel guidelines
+│   └── updating-the-handbook/  # How to edit and update the handbook
 │
-├── config.py                       #  Config chung (Gemini client + E5 embed model + Chroma)
-├── ingest_handbook.py              #  Ingestion pipeline (đọc pages → chunk → embed → lưu vector DB)
-├── rag_core.py                     #  RAG core (embed query → retrieve → Gemini generate)
-├── api.py                          #  FastAPI server (endpoint /chatbot_query)
+├── chroma_db/                  # Chroma vector store (auto-generated after ingestion)
+├── gemini_env/                 # Gemini environment / configuration
+├── tts_handbook/               # Original TTS Handbook clone (optional)
 │
-├── requirements.txt                #  Danh sách thư viện chạy project
-├── README.md                       #  Mô tả dự án, pipeline, cách chạy
-└── .gitignore                      # (optional) Ignore venv, chroma_db, cache, etc.
+├── README.md
+├── requirements.txt
+└── __pycache__/                # Python cache files
 ```
 
 **Nguyễn Đức Anh**
