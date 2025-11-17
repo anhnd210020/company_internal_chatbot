@@ -1,5 +1,8 @@
 ## Dataset
+1. **Overview**
 
+## File Organization
+```text
 company-internal-chatbot/
 ├── pages/                          # Bộ tài liệu nội bộ (markdown) để ingest
 │   ├── onboarding/
@@ -18,6 +21,7 @@ company-internal-chatbot/
 ├── requirements.txt                #  Danh sách thư viện chạy project
 ├── README.md                       #  Mô tả dự án, pipeline, cách chạy
 └── .gitignore                      # (optional) Ignore venv, chroma_db, cache, etc.
+```
 
 **Nguyễn Đức Anh**
 University: Hanoi University of Science and Technology (HUST)
