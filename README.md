@@ -1,5 +1,39 @@
 ## Dataset
 1. **Overview**
+Dataset
+1. Overview
+
+The TTS Handbook is an extensive knowledge-base created by Technology Transformation Services (TTS), a division of the U.S. General Services Administration (GSA).
+The entire dataset is fully open-source, publicly accessible, and contains no sensitive information or internal accounts.
+
+Structured into 38 directories and 250+ Markdown files, the collection captures a wide range of organizational knowledge typically found inside a large government-level institution, including:
+
+Team operations
+
+HR policies
+
+Hiring and onboarding processes
+
+Project management guidelines
+
+Supervisor and leadership guidance
+
+Technical tools and IT procedures
+
+Partner and vendor collaboration practices
+
+Travel and leave policies
+
+Training and professional development
+
+Conflict resolution and feedback practices
+
+Security policies and technology standards
+
+Leadership and management principles
+
+You can browse the original repository here:
+https://github.com/GSA-TTS/handbook/tree/main/pages
 
 ## File Organization
 ```text
