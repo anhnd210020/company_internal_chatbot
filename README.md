@@ -58,7 +58,11 @@ company-internal-chatbot/
 ```
 
 **Nguyễn Đức Anh**
+
 University: Hanoi University of Science and Technology (HUST)
+
 Email: [anh.nd210020@gmail.com](mailto:anh.nd210020@gmail.com)
+
 Address: Hanoi, Vietnam
+
 GitHub: [anhnd210020](https://github.com/anhnd210020)
