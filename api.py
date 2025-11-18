@@ -11,6 +11,7 @@ Handles:
 from fastapi import FastAPI
 from pydantic import BaseModel
 from rag_core import generate_answer
+from conversation_logger import log_interaction
 
 app = FastAPI(title="Company Handbook Chatbot")
 
@@ -20,10 +21,8 @@ class ChatRequest(BaseModel):
     question: str
 
 class ChatResponse(BaseModel):
-    """Response body containing the chatbot's answer and source metadata."""
+    """Response body containing the chatbot's answer."""
     answer: str
-    sources: list
-
 
 @app.post("/chatbot_query", response_model=ChatResponse)
 def chatbot_query(req: ChatRequest) -> ChatResponse:
@@ -34,7 +33,11 @@ def chatbot_query(req: ChatRequest) -> ChatResponse:
     passes it to the RAG pipeline, and returns a structured response.
     """
     result = generate_answer(req.question)
+    answer = result["answer"]
 
+    # Log each question and answer
+    log_interaction(req.question, answer)
+    
     # Wrap the result into the Pydantic response model to ensure consistency.
     return ChatResponse(
         answer=result["answer"]
