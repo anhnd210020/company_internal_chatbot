@@ -1,3 +1,23 @@
+## Project Overview
+
+This project implements an internal RAG-based (Retrieval-Augmented Generation) chatbot designed to support employees across various departments including HR, IT, Operations, and Product teams. The system enables staff to quickly access organizational knowledge such as policies, procedures, onboarding materials, technical guides, and common troubleshooting steps.
+
+The chatbot is powered by:
+
+The TTS Handbook dataset (an open-source, government-level organizational knowledge-base)
+
+ChromaDB for vector storage and retrieval
+
+Embedding models for semantic search
+
+Google Gemini for natural-language generation
+
+FastAPI for serving a lightweight /chatbot_query API endpoint
+
+The dataset mirrors real-world enterprise documentation, containing content such as HR policies, IT support instructions (e.g., connecting to Wi-Fi, using printers, setting up accounts), onboarding materials, software tools guidance, project workflows, and employee resources. By augmenting the LLM with this structured knowledge, the chatbot produces accurate, context-grounded answers instead of hallucinated responses.
+
+The result is a mini internal knowledge assistant that helps employees resolve common questions instantly, reduces repetitive workload for HR/IT teams, and provides a foundation for scalable enterprise AI support systems.
+
 ## Dataset
 1. **Overview Dataset**
 
@@ -167,7 +187,7 @@ Employee performance evaluation materials:
 
 **- tools**
 
-+ Extensive tool documentation — the most valuable section for IT-support chatbots:
++ Extensive tool documentation the most valuable section for IT-support chatbots:
 
 1. Adobe, Airtable
 
