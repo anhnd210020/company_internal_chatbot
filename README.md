@@ -416,6 +416,54 @@ To start the FastAPI server, run the following command in the project root:
 └── __pycache__/                # Python cache files
 ```
 
+## Example Usage
+
+### Example 1: General & About TTS
+
+**Input**
+```json
+{
+  "question": "What is the mission of TTS and how does it support government agencies?"
+}
+```
+
+**Output**
+```json
+{
+"answer": "The mission of TTS Consulting is to empower government partners to create better digital experiences to more effectively serve the American public, aiming to bring government into the digital age and transform the way it works.\n\nTTS supports government agencies by:\n*   Helping them find a starting point for digital modernization.\n*   Building staff capacity.\n*   Modernizing technology systems.\n*   Improving the public experience of government.\n*   Building and buying technology in better ways.\n*   Providing digital development and consulting services, including teaching agencies new digital skills.\n*   Implementing IT modernization.\n*   Strengthening partnerships and promoting innovation within government."
+}
+```
+
+### Example 2: Getting Started & Onboarding
+
+**Input**
+```json
+{
+  "question": "I’m a new employee. What are the first steps I should take in my first week?"
+}
+```
+**Output**
+```json
+{
+"answer": "As a new employee, in your first week you should:\n\n*   Submit your timecard correctly.\n*   Have a 1:1 meeting with your chapter or center director.\n*   If you are with 18F, prepare to introduce yourself at Team Coffee.\n*   Set up your workspace to be comfortable and focused.\n*   Plan time in your day for breaks.\n*   Start building your support network by using virtual coffees to connect with teammates.\n*   Get familiar with the free Employee Assistance Program (EAP)."
+}
+```
+
+### Example 3: HR, Jobs & Career Changes
+
+**Input**
+```json
+{
+  "question": "How does the hiring process at TTS generally work?"
+}
+```
+**Output**
+```json
+{
+"answer": "The TTS hiring process generally works as follows:\n\n1.  **Identify Need & Prioritization**: Hiring managers, in coordination with their Business Unit heads, identify a hiring need. Once identified, the need enters Talent's work queue for prioritization.\n2.  **Sourcing & Application**: TTS Talent sources diverse candidate pools through job boards, events, and encourages candidates to attend cross-TTS information sessions. Candidates apply without indicating specific TTS group(s) of interest.\n3.  **Candidate Review & Selection**: Hiring managers review resumes and select candidates of interest. Talent then reviews selected candidates to ensure they meet specialized experience requirements. Qualified candidates are contacted individually by Talent to discuss potential offices and determine their interest in proceeding. The number of candidates a hiring manager can select for interview is capped based on the number of hires needed.\n4.  **Interviewing**: All candidates receive interview questions in advance to promote a fair, equitable, and transparent process. Interviewers participate in training that covers unconscious bias, and Talent works with hiring teams on best practices for equity and inclusion in candidate evaluation, panel selection, interview conduct, note-taking, debriefing, and final selections.\n\nThroughout the process, TTS aims to incorporate equity and inclusion and adhere to Merit Systems Principles."
+}
+```
+
 **Nguyễn Đức Anh**
 
 University: Hanoi University of Science and Technology (HUST)
