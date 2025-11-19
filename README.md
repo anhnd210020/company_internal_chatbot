@@ -79,21 +79,19 @@ Uses embeddings + vector search + Gemini LLM, enabling the system to generate co
 
 ```mermaid
 flowchart LR
-U[User / Client] -->|POST /chatbot_query| A[FastAPI<br/>api.py]
-A -->|question| R[generate_answer()<br/>rag_core.py]
+    U[User / Client] -->|POST /chatbot_query| A[FastAPI / api.py]
+    A -->|question| R[generate_answer() / rag_core.py]
 
-R --> EQ[embed_query()<br/>E5 model]
-EQ --> RC[retrieve_context()<br/>ChromaDB]
+    R --> EQ[embed_query() - E5 model]
+    EQ --> RC[retrieve_context() - ChromaDB]
 
-RC --> BP[build_prompt()<br/>with CONTEXT]
-BP --> GM[Gemini LLM<br/>genai.Client]
+    RC --> BP[build_prompt() - with CONTEXT]
+    BP --> GM[Gemini LLM - genai.Client]
 
-GM --> R
-R -->|answer + sources| A
-A -->|log_interaction(question, answer)| L[conversation_logger]
-A --> U
-
-
+    GM --> R
+    R -->|answer + sources| A
+    A -->|log_interaction(question, answer)| L[conversation_logger.py]
+    A --> U
 ```
 
 ## Dataset
