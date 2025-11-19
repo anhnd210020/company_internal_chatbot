@@ -75,6 +75,27 @@ Uses embeddings + vector search + Gemini LLM, enabling the system to generate co
 
 -> This endpoint performs retrieval + generation and returns the final answer along with reference sources.
 
+## System Architecture
+
+```mermaid
+flowchart LR
+U[User / Client] -->|POST /chatbot_query| A[FastAPI<br/>api.py]
+A -->|question| R[generate_answer()<br/>rag_core.py]
+
+R --> EQ[embed_query()<br/>E5 model]
+EQ --> RC[retrieve_context()<br/>ChromaDB]
+
+RC --> BP[build_prompt()<br/>with CONTEXT]
+BP --> GM[Gemini LLM<br/>genai.Client]
+
+GM --> R
+R -->|answer + sources| A
+A -->|log_interaction(question, answer)| L[conversation_logger]
+A --> U
+
+
+```
+
 ## Dataset
 1. **Overview Dataset**
 
