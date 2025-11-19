@@ -81,7 +81,16 @@ Uses embeddings + vector search + Gemini LLM, enabling the system to generate co
 
 The system architecture illustrates the complete flow of how a user’s question is processed through the RAG pipeline. When a user submits a query to the FastAPI endpoint, the request is forwarded into the RAG core module, where the question is embedded using the E5 multilingual embedding model. The resulting vector is used to retrieve the most relevant document chunks from the ChromaDB vector store. These chunks are then merged into a grounded prompt, which is sent to the Gemini LLM for final answer generation. The response is logged and returned to the user.
 
-## Dataset
+## Technologies Used
+
+| Component      | Technology        |
+|----------------|-------------------|
+| **API Server** | FastAPI           |
+| **Database**   | ChromaDB            |
+| **LLM**        | Gemini 2.5 Flash  |
+| **Language**   | Python 3.10       |
+
+## Dataset 
 1. **Overview Dataset**
 
 The TTS Handbook is an extensive knowledge-base created by Technology Transformation Services (TTS), a division of the U.S. General Services Administration (GSA).
@@ -334,6 +343,45 @@ Employee performance evaluation materials:
 
 8. Reimbursements
 
+## Installation
+
+For this project, **python=3.10** are used.
+
+1. **Clone the repository.**
+
+   ```bash
+   git clone https://github.com/anhnd210020/company_internal_chatbot.git
+   cd company_internal_chatbot
+   ```
+
+2. **Create a virtual environment for Supestore and and activate the environment.**
+
+   ```bash
+   conda create -n chatbot python=3.11
+   conda activate chatbot
+   ```
+
+3. **Install other dependencies.**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Environment Variables (.env)
+
+Create a `.env` file in the project root directory with the following content:
+
+   ```bash
+   GEMINI_API_KEY="your_api_key_here"
+   ```
+
+## Run the API Server
+
+To start the FastAPI server, run the following command in the project root:
+
+   ```bash
+   uvicorn api:app --reload 
+   ```
 ## File Organization
 ```text
 .
