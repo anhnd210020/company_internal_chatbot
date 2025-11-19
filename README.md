@@ -77,22 +77,9 @@ Uses embeddings + vector search + Gemini LLM, enabling the system to generate co
 
 ## System Architecture
 
-```mermaid
-flowchart LR
-    U[User / Client] -->|POST /chatbot_query| A[FastAPI / api.py]
-    A -->|question| R[generate_answer() / rag_core.py]
+![System Architecture](pic/System_Architecture_Chatbot_Company.png)
 
-    R --> EQ[embed_query() - E5 model]
-    EQ --> RC[retrieve_context() - ChromaDB]
-
-    RC --> BP[build_prompt() - with CONTEXT]
-    BP --> GM[Gemini LLM - genai.Client]
-
-    GM --> R
-    R -->|answer + sources| A
-    A -->|log_interaction(question, answer)| L[conversation_logger.py]
-    A --> U
-```
+The system architecture illustrates the complete flow of how a user’s question is processed through the RAG pipeline. When a user submits a query to the FastAPI endpoint, the request is forwarded into the RAG core module, where the question is embedded using the E5 multilingual embedding model. The resulting vector is used to retrieve the most relevant document chunks from the ChromaDB vector store. These chunks are then merged into a grounded prompt, which is sent to the Gemini LLM for final answer generation. The response is logged and returned to the user.
 
 ## Dataset
 1. **Overview Dataset**
