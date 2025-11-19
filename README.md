@@ -18,6 +18,63 @@ The dataset mirrors real-world enterprise documentation, containing content such
 
 The result is a mini internal knowledge assistant that helps employees resolve common questions instantly, reduces repetitive workload for HR/IT teams, and provides a foundation for scalable enterprise AI support systems.
 
+## Features
+
+1. Internal RAG Chatbot for Enterprise Knowledge
+
+Provides accurate answers to employee questions across HR, IT, Operations, and Product domains by combining semantic search with LLM generation.
+
+2. Multi-Domain Knowledge Coverage
+
+- The chatbot can respond to topics such as:
+
++ IT support (Wi-Fi, printers, accounts, tools)
+
++ HR policies (leave, benefits, onboarding, performance)
+
++ Organizational procedures
+
++ Software development and workflow guidelines
+
++ Tool documentation (Slack, GitHub, Google Workspace, Zoom, etc.)
+
+3. Retrieval-Augmented Generation (RAG) Pipeline
+
+Uses embeddings + vector search + Gemini LLM, enabling the system to generate context-grounded answers based strictly on real documents.
+
+4. ChromaDB-Based Vector Store
+
+- Stores all document embeddings and metadata, enabling:
+
++ Fast semantic search
+
++ Document filtering
+
++ Deterministic retrieval
+
+5. Flexible Data Ingestion Pipeline
+
+- Supports ingestion of:
+
++ Markdown documents (primary dataset)
+
++ PDFs, Word documents
+
++ Excel files
+
++ Images with OCR (if extended)
+
++ The included ingestion script automatically chunks, embeds, and stores the data.
+
+6. Lightweight FastAPI Backend
+
+- Exposes a single clean API endpoint:
+
++ POST /chatbot_query
+
+
+-> This endpoint performs retrieval + generation and returns the final answer along with reference sources.
+
 ## Dataset
 1. **Overview Dataset**
 
