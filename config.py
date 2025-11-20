@@ -28,6 +28,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 # Gemini model used for text generation
 GEN_MODEL = "gemini-2.5-flash"
+JUDGE_MODEL = GEN_MODEL
 
 # Embedding model configuration (Multilingual E5)
 EMBEDDING_MODEL_NAME = "intfloat/multilingual-e5-small"
