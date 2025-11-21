@@ -104,7 +104,7 @@ Answer in the same language as the user question:
 """
     return prompt
 
-def generate_answer(question: str, top_k: int = 5) -> Dict:
+def generate_answer(question: str, top_k: int = 10) -> Dict:
     """
     Full RAG pipeline:
     1. Retrieve relevant context.
