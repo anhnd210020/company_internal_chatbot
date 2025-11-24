@@ -382,6 +382,13 @@ To start the FastAPI server, run the following command in the project root:
    ```bash
    uvicorn api:app --reload 
    ```
+
+After that, you can access the API documentation at:
+
+   ```bash
+   http://127.0.0.1:8001/docs
+   ```
+
 ## File Organization
 ```text
 .
