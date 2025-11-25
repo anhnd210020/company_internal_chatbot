@@ -129,7 +129,7 @@ https://github.com/GSA-TTS/handbook/tree/main/pages
 
 The TTS Handbook dataset is organized into clear directories, each representing a specific domain of organizational knowledge. Below is a concise breakdown of the major folders and their contents.
 
-**- 18f**
+**- 18f (Roles, disciplines, project lifecycle, partner collaboration)**
 
 + Documentation for the 18F team, including:
 
@@ -141,7 +141,7 @@ The TTS Handbook dataset is organized into clear directories, each representing 
 
 + Working with partners: consulting engineering, leading projects, project team guidance, distressed project handling
 
-**- about-us**
+**- about-us (Org charts, communication guidelines, onboarding resources)**
 
 + Organizational information and foundational resources:
 
@@ -155,7 +155,7 @@ The TTS Handbook dataset is organized into clear directories, each representing 
 
 5. Training and onboarding materials
 
-**- general-information-and-resources**
+**- general-information-and-resources (Employee resources, tech policies, conflict frameworks)**
 
 + Core policies and essential employee resources:
 
@@ -169,7 +169,7 @@ The TTS Handbook dataset is organized into clear directories, each representing 
 
 + Tools overview: approved software, purchase processes, general contacts
 
-**- getting-started**
+**- getting-started (Equipment setup, login instructions, welcome package)**
 
 + Primary onboarding materials:
 
@@ -183,7 +183,7 @@ The TTS Handbook dataset is organized into clear directories, each representing 
 
 5. Initial classes and training
 
-**- hiring-staying-or-changing-jobs**
+**- hiring-staying-or-changing-jobs (Full HR lifecycle documentation)**
 
 + Complete HR lifecycle:
 
@@ -199,7 +199,7 @@ The TTS Handbook dataset is organized into clear directories, each representing 
 
 6. Term extensions
 
-**- launching-software**
+**- launching-software (Security, compliance, privacy, infrastructure)**
 
 + Technical and compliance documentation:
 
@@ -213,11 +213,11 @@ The TTS Handbook dataset is organized into clear directories, each representing 
 
 5. Product lifecycle processes
 
-**- office-of-acquisition**
+**- office-of-acquisition (Department-specific workflows)**
 
 + Procurement and acquisition workflows.
 
-**- office-of-operations**
+**- office-of-operations (Department-specific workflows)**
 
 + Operations-related resources:
 
@@ -231,7 +231,7 @@ The TTS Handbook dataset is organized into clear directories, each representing 
 
 5. Talent processes
 
-**- office-of-solutions**
+**- office-of-solutions (Department-specific workflows)**
 
 + Materials on:
 
@@ -243,7 +243,7 @@ The TTS Handbook dataset is organized into clear directories, each representing 
 
 4. Innovation portfolio
 
-**- performance-management**
+**- performance-management (Review cycles and evaluation guidance)**
 
 Employee performance evaluation materials:
 
@@ -253,11 +253,11 @@ Employee performance evaluation materials:
 
 3. Annual review cycle timelines
 
-**- supervisor-resources**
+**- supervisor-resources (Supervisor playbook with 12 management “plays”)**
 
 + A comprehensive supervisor playbook (12 plays), covering management responsibilities and best practices.
 
-**- tools**
+**- tools (Comprehensive tool documentation (Slack, GitHub, Zoom, Trello, etc.))**
 
 + Extensive tool documentation the most valuable section for IT-support chatbots:
 
@@ -309,7 +309,7 @@ Employee performance evaluation materials:
 
 24. Records
 
-**- training-and-development**
+**- training-and-development (Professional development resources)**
 
 + Materials for professional growth:
 
@@ -323,7 +323,7 @@ Employee performance evaluation materials:
 
 5. PRA for user research
 
-**- travel-and-leave**
+**- travel-and-leave (Leave policies, travel guidelines, reimbursements)**
 
 + HR-level travel and leave documentation:
 
