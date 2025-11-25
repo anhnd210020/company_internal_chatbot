@@ -79,30 +79,31 @@ def build_prompt(question: str, contexts: List[Dict]) -> str:
     )
 
     prompt = f"""
-You are an internal company assistant referencing the official Handbook.
-Your task is to answer clearly and concisely.
+    You are an internal company assistant referencing the official Handbook.
+    Your task is to answer clearly and concisely.
 
-You MUST rely ONLY on the information provided in the CONTEXT below.
+    You MUST rely ONLY on the information provided in the CONTEXT below.
 
-LANGUAGE RULES:
-1. Detect the language of the user question.
-2. If the user asks in English → answer in English.
-3. If the user asks in Vietnamese → answer in Vietnamese.
-4. If the answer cannot be found in context:
-   - If the user asks in English → reply exactly:
-     "I could not find the exact information in the internal documentation."
-   - If the user asks in Vietnamese → reply exactly:
-     "Tôi không tìm thấy thông tin chính xác trong tài liệu nội bộ."
+    LANGUAGE RULES:
+    1. Detect the language of the user question.
+    2. If the user asks in English → answer in English.
+    3. If the user asks in Vietnamese → answer in Vietnamese.
+    4. If the answer cannot be found in context:
+    - If the user asks in English → reply exactly:
+        "I could not find the exact information in the internal documentation."
+    - If the user asks in Vietnamese → reply exactly:
+        "Tôi không tìm thấy thông tin chính xác trong tài liệu nội bộ."
 
-CONTEXT:
-{context_text}
+    CONTEXT:
+    {context_text}
 
-USER QUESTION:
-{question}
+    USER QUESTION:
+    {question}
 
-Answer in the same language as the user question:
-"""
+    Answer strictly in the same language as the user question:
+    """
     return prompt
+
 
 def generate_answer(question: str, top_k: int = 10) -> Dict:
     """
@@ -132,7 +133,8 @@ def generate_answer(question: str, top_k: int = 10) -> Dict:
                 "source_file": meta.get("source_file"),
             }
         )
-
+    print("[DEBUG] Generated answer:", answer_text)
+    print("[DEBUG] Sources used:", sources)
     return {
         "answer": answer_text,
         "sources": sources,
