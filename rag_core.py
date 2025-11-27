@@ -140,7 +140,6 @@ def generate_answer(question: str, top_k: int = 10) -> Dict:
         "sources": sources,
     }
 
-
 if __name__ == "__main__":
     sample_question = "What is the leave policy for employees?"
     result = generate_answer(sample_question)
