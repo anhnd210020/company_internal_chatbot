@@ -3,18 +3,20 @@
 from datetime import datetime
 from pathlib import Path
 import json
+from typing import Optional
 
 # Log file path
 LOG_PATH = Path("chat_logs.jsonl")
 
 
-def log_interaction(question: str, answer: str) -> None:
+def log_interaction(question: str, answer: str, question_id: Optional[str] = None) -> None:
     """
     Record each question and answer into a JSON Lines file.
-    Each line is an object: {timestamp, question, answer}
+    Each line is an object: {timestamp, question_id, question, answer}
     """
     entry = {
         "timestamp": datetime.utcnow().isoformat(),  # UTC time
+        "question_id": question_id,                
         "question": question,
         "answer": answer,
     }
