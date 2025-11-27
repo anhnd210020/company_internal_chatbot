@@ -12,13 +12,16 @@ Responsibilities:
 
 import time
 from typing import Dict, Optional
+import uuid
 
 class SessionState:
     """Store temporary state for a single conversation session."""
     def __init__(self) -> None:
         self.buffer: str = ""
         self.last_update: float = 0.0
-        self.answer: Optional[str] = None        
+        self.answer: Optional[str] = None
+        self.current_question_id: Optional[str] = None
+        self.history: list[dict] = []        
 
 class SessionManager:
     """
@@ -47,6 +50,10 @@ class SessionManager:
         state = self._get_or_create_state(session_id)
 
         fragment = fragment.strip()
+
+        if not state.buffer:
+            state.current_question_id = str(uuid.uuid4())
+
         if state.buffer:
             state.buffer += " " + fragment
         else:
@@ -61,17 +68,24 @@ class SessionManager:
         """Return the raw session state (or None if not exists)."""
         return self.sessions.get(session_id)
     
-    def pop_buffer(self, session_id: str) -> str:
+    def pop_buffer(self, session_id: str) -> tuple[str, Optional[str]]:
         """
         Get the full question buffer and reset it.
+        Returns (full_question, question_id).
         """
         state = self.sessions.get(session_id)
         if state is None:
-            return ""
+            return "", None
+
         full_question = state.buffer.strip()
+        qid = state.current_question_id
+
         state.buffer = ""
         state.last_update = 0.0
-        return full_question
+        state.current_question_id = None  # reset for next question
+
+        return full_question, qid
+
     
     def set_answer(self, session_id: str, answer: str) -> None:
         """
