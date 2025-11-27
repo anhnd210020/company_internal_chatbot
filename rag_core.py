@@ -9,7 +9,7 @@ Responsible for:
 - Generating the final answer using Gemini
 """
 
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 from config import collection, embedding_model, client, GEN_MODEL
 
@@ -68,11 +68,32 @@ def retrieve_context(question: str, top_k: int = 5) -> List[Dict]:
     return contexts
 
 
-def build_prompt(question: str, contexts: List[Dict]) -> str:
+def build_prompt(
+    question: str,
+    contexts: List[Dict],
+    history: Optional[List[Dict]] = None,
+) -> str:
     """
     Build the final prompt for the LLM.
-    All retrieved context snippets are merged with separators.
+    - Merge retrieved context snippets.
+    - Optionally include recent conversation history for this chat.
     """
+    # Build conversation history text (chỉ lấy vài lượt gần nhất)
+    history_text = ""
+    if history:
+        # lấy tối đa 5 lượt Q&A gần nhất
+        recent_turns = history[-5:]
+        for turn in recent_turns:
+            user_q = turn.get("user")
+            assistant_a = turn.get("assistant")
+            if not user_q or not assistant_a:
+                continue
+            history_text += f"User: {user_q}\nAssistant: {assistant_a}\n\n"
+
+    if not history_text:
+        history_text = "(no previous conversation in this chat)"
+
+    # Build context text từ RAG
     context_text = "\n\n---\n\n".join(
         f"[Source: {c['metadata'].get('title', 'unknown')}]\n{c['text']}"
         for c in contexts
@@ -94,6 +115,9 @@ def build_prompt(question: str, contexts: List[Dict]) -> str:
     - If the user asks in Vietnamese → reply exactly:
         "Tôi không tìm thấy thông tin chính xác trong tài liệu nội bộ."
 
+    CONVERSATION SO FAR:
+    {history_text}
+
     CONTEXT:
     {context_text}
 
@@ -105,15 +129,19 @@ def build_prompt(question: str, contexts: List[Dict]) -> str:
     return prompt
 
 
-def generate_answer(question: str, top_k: int = 10) -> Dict:
+def generate_answer(
+    question: str,
+    top_k: int = 10,
+    history: Optional[List[Dict]] = None,
+) -> Dict:
     """
     Full RAG pipeline:
     1. Retrieve relevant context.
-    2. Build the prompt.
+    2. Build the prompt (including optional chat history).
     3. Generate an answer using Gemini.
     """
     contexts = retrieve_context(question, top_k=top_k)
-    prompt = build_prompt(question, contexts)
+    prompt = build_prompt(question, contexts, history=history)
 
     response = client.models.generate_content(
         model=GEN_MODEL,
@@ -135,6 +163,7 @@ def generate_answer(question: str, top_k: int = 10) -> Dict:
         )
     print("[DEBUG] Generated answer:", answer_text)
     print("[DEBUG] Sources used:", sources)
+    
     return {
         "answer": answer_text,
         "sources": sources,
