@@ -396,6 +396,7 @@ After that, you can access the API documentation at:
 ├── config.py                   # Gemini, embeddings, and Chroma configuration
 ├── rag_core.py                 # RAG logic: retrieval + generation
 ├── ingest_handbook.py          # Ingest TTS Handbook into ChromaDB
+├── session_manager.py          # Manage multi-turn sessions and merge fragmented user queries
 │
 ├── pages/                      # TTS Handbook dataset (Markdown files)
 │   ├── 18f/                    # 18F team: history, projects, leadership
