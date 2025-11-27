@@ -6,41 +6,127 @@ Handles:
 - FastAPI application setup
 - Request/response model definitions
 - Chatbot query endpoint that interacts with the RAG pipeline
+- Uses SessionManager for message accumulation (per user_id + chat_id)
+- Uses BackgroundTasks to wait (10s) and generate answers without blocking requests
 """
 
-from fastapi import FastAPI
+import time
+import asyncio
+from fastapi import FastAPI, BackgroundTasks
 from pydantic import BaseModel
+
 from rag_core import generate_answer
 from conversation_logger import log_interaction
+from session_manager import session_manager
 
 app = FastAPI(title="Company Handbook Chatbot")
 
+# ==== Request/Response models ====
 
 class ChatRequest(BaseModel):
-    """Request body containing the user's question."""
+    """
+    Request body containing the user's question fragment.
+    - user_id: identifier of the user (employee id / email / etc.)
+    - chat_id: identifier of a conversation belonging to that user
+    - question: the fragment the user just sent
+    """
+    user_id: str
+    chat_id: str
     question: str
 
 class ChatResponse(BaseModel):
-    """Response body containing the chatbot's answer."""
+    """Response body containing the chatbot's answer or status message."""
     answer: str
 
-@app.post("/chatbot_query", response_model=ChatResponse)
-def chatbot_query(req: ChatRequest) -> ChatResponse:
-    """
-    Handle chatbot queries.
+# ==== Helper: build session_key from user_id + chat_id ====
 
-    This endpoint receives a question from the user,
-    passes it to the RAG pipeline, and returns a structured response.
+def make_session_key(user_id: str, chat_id: str) -> str:
     """
-    result = generate_answer(req.question)
+    Combine user_id + chat_id into a unique key for SessionManager.
+    Example: "user123:chatA"
+    """
+    return f"{user_id}:{chat_id}"
+
+# ==== Background task ====
+
+async def process_session_after_timeout(session_id: str, started_at: float) -> None:
+    """
+    Background task:
+    - Wait compose_window seconds.
+    - Check if there has been new input after 'started_at'.
+    - If not, treat the buffer as a final question, call RAG, and store the answer.
+    """
+    await asyncio.sleep(session_manager.compose_window)
+
+    state = session_manager.get_state(session_id)
+    if state is None:
+        return
+
+    # If there's newer activity after this task was scheduled, do nothing.
+    if state.last_update > started_at:
+        # User continued typing after we scheduled this task => skip.
+        return
+
+    # Pop question buffer (final merged question)
+    final_question = session_manager.pop_buffer(session_id)
+    if not final_question:
+        return
+
+    # Call RAG pipeline
+    result = generate_answer(final_question)
     answer = result["answer"]
 
-    # Log each question and answer
-    log_interaction(req.question, answer)
-    
-    # Wrap the result into the Pydantic response model to ensure consistency.
+    # Log Q&A
+    log_interaction(final_question, answer)
+
+    # Store answer for later retrieval
+    session_manager.set_answer(session_id, answer)
+
+# ==== Endpoints ====
+
+@app.post("/chatbot_query", response_model=ChatResponse)
+async def chatbot_query(req: ChatRequest, background_tasks: BackgroundTasks) -> ChatResponse:
+    """
+    Receive a fragment of the user's question.
+
+    Logic:
+    - Compute session_key = user_id + chat_id.
+    - Append the fragment to the corresponding session buffer.
+    - Schedule a background task:
+        - wait compose_window seconds,
+        - if no new fragment arrives → treat it as a final question → call RAG → store answer.
+    - Immediately return a status message WITHOUT blocking the client.
+    """
+    session_key = make_session_key(req.user_id, req.chat_id)
+
+    # 1) Add fragment to buffer
+    _ = session_manager.add_fragment(session_key, req.question)
+
+    # 2) Schedule background task with the current timestamp
+    started_at = time.time()
+    background_tasks.add_task(process_session_after_timeout, session_key, started_at)
+
+    # 3) Return immediately (do not wait for LLM)
     return ChatResponse(
-        answer=result["answer"]
+        answer="(Waiting for you to finish your question... answer will be ready soon.)"
     )
+    
+@app.get("/chatbot_result/{user_id}/{chat_id}", response_model=ChatResponse)
+async def get_chatbot_result(user_id: str, chat_id: str) -> ChatResponse:
+    """
+    Retrieve the final answer for a given user_id + chat_id.
+
+    - If the answer is ready → return it and clear it from the session.
+    - If no answer is ready yet → return a status message.
+    """
+    session_key = make_session_key(user_id, chat_id)
+    ans = session_manager.pop_answer(session_key)
+
+    if ans is None:
+        return ChatResponse(
+            answer="(Answer is not ready yet, or no complete question has been detected.)"
+        )
+
+    return ChatResponse(answer=ans)
 
 
