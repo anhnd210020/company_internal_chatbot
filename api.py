@@ -67,17 +67,27 @@ async def process_session_after_timeout(session_id: str, started_at: float) -> N
         # User continued typing after we scheduled this task => skip.
         return
 
-    # Pop question buffer (final merged question)
-    final_question = session_manager.pop_buffer(session_id)
+    # Pop question buffer (final merged question + question_id)
+    final_question, question_id = session_manager.pop_buffer(session_id)
     if not final_question:
         return
 
     # Call RAG pipeline
-    result = generate_answer(final_question)
+    history = state.history if hasattr(state, "history") else None
+    result = generate_answer(final_question, history=history)
     answer = result["answer"]
 
     # Log Q&A
-    log_interaction(final_question, answer)
+    log_interaction(final_question, answer, question_id=question_id)
+
+    # History update: added 1 new question and answer
+    state.history.append({
+        "user": final_question,
+        "assistant": answer,
+    })
+    # Keep up to 5 recent turns (up to you, can increase to 10)
+    if len(state.history) > 5:
+        state.history = state.history[-5:]
 
     # Store answer for later retrieval
     session_manager.set_answer(session_id, answer)
