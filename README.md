@@ -393,11 +393,12 @@ After that, you can access the API documentation at:
 ```text
 .
 ├── api.py                      # FastAPI: /chatbot_query endpoint
+├── app_streamlit.py            # Streamlit frontend UI for chatting with the RAG-based chatbot
 ├── config.py                   # Gemini, embeddings, and Chroma configuration
-├── rag_core.py                 # RAG logic: retrieval + generation
-├── ingest_handbook.py          # Ingest TTS Handbook into ChromaDB
-├── session_manager.py          # Manage multi-turn sessions and merge fragmented user queries
 ├── conversation_logger.py      # Log questions and answers into a JSONL file
+├── ingest_handbook.py          # Ingest TTS Handbook into ChromaDB
+├── rag_core.py                 # RAG logic: retrieval + generation
+├── session_manager.py          # Manage multi-turn sessions and merge fragmented user queries
 │
 ├── pages/                      # TTS Handbook dataset (Markdown files)
 │   ├── 18f/                    # 18F team: history, projects, leadership
