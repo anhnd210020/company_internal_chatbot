@@ -85,7 +85,7 @@ async def process_session_after_timeout(session_id: str, started_at: float) -> N
         "user": final_question,
         "assistant": answer,
     })
-    # Keep up to 5 recent turns (up to you, can increase to 10)
+    # Keep up to 5 recent turns (can increase to 10)
     if len(state.history) > 5:
         state.history = state.history[-5:]
 
