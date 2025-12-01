@@ -389,6 +389,18 @@ After that, you can access the API documentation at:
    http://127.0.0.1:8001/docs
    ```
 
+## Run the Simulation with Streamlit Frontend
+
+If you want to run the simulation with a Streamlit frontend, make sure to start the Uvicorn server first.
+Then, launch the Streamlit interface using the following command:
+
+streamlit run app_streamlit.py
+   ```bash
+   streamlit run app_streamlit.py
+   ```
+
+The Streamlit UI will then communicate with the running FastAPI backend.
+
 ## File Organization
 ```text
 .
